@@ -41,7 +41,7 @@ export default function MobileNav() {
           {navLink.map((item: NavLink, index: number) => (
             <li key={index}>
               <Link
-                className={item.href === pathname ? "font-bold" : ""}
+                className={pathname.startsWith(item.href) ? "font-bold" : ""}
                 href={item.href}
                 onClick={showNavHandler}
               >

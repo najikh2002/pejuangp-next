@@ -13,7 +13,7 @@ export default function MainNav() {
           <li key={index}>
             <Link
               className={`hover:text-primary-500 transition-all ${
-                item.href === pathname ? "font-bold" : ""
+                pathname.startsWith(item.href) ? "font-bold" : ""
               }`}
               href={item.href}
             >
