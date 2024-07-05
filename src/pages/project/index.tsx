@@ -7,7 +7,7 @@ export default function Project() {
         title="Project"
         description="List project Pejuang Pemrograman member :)"
       />
-      <div className="min-h-screen"></div>
+      <div className="min-h-[75vh]"></div>
     </section>
   );
 }
