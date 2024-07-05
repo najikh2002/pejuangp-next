@@ -15,13 +15,12 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      {!isDynamicRoute && (
-        <style jsx global>{`
-          html {
-            font-family: ${spaceGrotesk.style.fontFamily};
-          }
-        `}</style>
-      )}
+      <style jsx global>{`
+        html {
+          font-family: ${spaceGrotesk.style.fontFamily};
+        }
+      `}</style>
+
       <ThemeProvider attribute="class">
         <Header />
         <Component {...pageProps} />
