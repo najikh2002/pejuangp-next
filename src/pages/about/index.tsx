@@ -13,9 +13,10 @@ export default function About() {
           dan teknologi. Tapi tenang, kamu nggak harus jago dulu buat gabung.
           Malah, kami percaya siapa aja bisa belajar pemrograman. <br />
           <br />
-          Di sini, nggak ada yang namanya "pertanyaan bodoh". Mau tanya cara
-          bikin "Hello World" atau diskusi tentang AI terbaru, semuanya welcome!
-          Prinsip kami simpel: semua orang sama di sini. <br />
+          Di sini, nggak ada yang namanya &quot;pertanyaan bodoh&quot;. Mau
+          tanya cara bikin &quot;Hello World&quot; atau diskusi tentang AI
+          terbaru, semuanya welcome! Prinsip kami simpel: semua orang sama di
+          sini. <br />
           <br />
           Kita semua punya sesuatu buat dibagiin, kan? Entah itu pengalaman
           debug sampai pagi atau trik coding yang bikin hidup lebih mudah. Nah,
