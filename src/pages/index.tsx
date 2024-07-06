@@ -7,7 +7,7 @@ import TitlePage from "@/components/title-page";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const notionService = new NotionService();
-  const posts = await notionService.getPublishedBlogPosts();
+  const { posts } = await notionService.getPublishedBlogPosts();
 
   return {
     props: {
