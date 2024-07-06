@@ -12,29 +12,59 @@ export class NotionService {
     this.n2m = new NotionToMarkdown({ notionClient: this.client });
   }
 
-  async getPublishedBlogPosts(): Promise<BlogPost[]> {
+  async getPublishedBlogPosts(
+    page: number = 1,
+    postsPerPage: number = 5
+  ): Promise<{
+    posts: BlogPost[];
+    totalPages: number;
+    currentPage: number;
+    allPosts: BlogPost[];
+  }> {
     const database = process.env.NOTION_DATABASE_ID || "";
 
-    let response = await this.client.databases.query({
-      database_id: database,
-      filter: {
-        property: "Published",
-        checkbox: {
-          equals: true,
-        },
-      },
-      sorts: [
-        {
-          property: "Created",
-          direction: "descending",
-        },
-      ],
-      // start_cursor: ,
-    });
+    let allPosts: BlogPost[] = [];
+    let hasMore = true;
+    let nextCursor: string | undefined;
 
-    return response.results.map((res) => {
-      return NotionService.pageToBlogTransformer(res);
-    });
+    while (hasMore) {
+      const response = await this.client.databases.query({
+        database_id: database,
+        filter: {
+          property: "Published",
+          checkbox: {
+            equals: true,
+          },
+        },
+        sorts: [
+          {
+            property: "Created",
+            direction: "descending",
+          },
+        ],
+        page_size: 100,
+        start_cursor: nextCursor,
+      });
+
+      allPosts = allPosts.concat(
+        response.results.map(NotionService.pageToBlogTransformer)
+      );
+      hasMore = response.has_more;
+      nextCursor = response.next_cursor || undefined;
+    }
+
+    const totalPages = Math.ceil(allPosts.length / postsPerPage);
+    const currentPage = Math.max(1, Math.min(page, totalPages));
+    const startIndex = (currentPage - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    const paginatedPosts = allPosts.slice(startIndex, endIndex);
+
+    return {
+      posts: paginatedPosts,
+      totalPages: totalPages,
+      currentPage: currentPage,
+      allPosts,
+    };
   }
 
   async getSingleBlogPost(slug: string): Promise<PostPage> {
