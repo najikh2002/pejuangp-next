@@ -11,24 +11,26 @@ export default function BlogCard({ ...post }: BlogPost) {
         </dd>
       </dl>
       <div className="space-y-3">
-        <h2 className="text-2xl font-bold leading-8 tracking-tight">
-          <Link
-            href={`/blog/${post.slug}`}
-            className="text-gray-900 dark:text-gray-100"
-          >
-            {post.title}
-          </Link>
-        </h2>
-        <div className="flex flex-wrap">
-          {post.tags.map((tag: Tag) => (
+        <div>
+          <h2 className="text-2xl font-bold leading-8 tracking-tight">
             <Link
-              key={tag.id}
-              href={`/tags/${tag.title}`}
-              className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              href={`/blog/${post.slug}`}
+              className="text-gray-900 dark:text-gray-100"
             >
-              {tag.name}
+              {post.title}
             </Link>
-          ))}
+          </h2>
+          <div className="flex flex-wrap">
+            {post.tags.map((tag: Tag) => (
+              <Link
+                key={tag.id}
+                href={`/tags/${tag.title}`}
+                className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              >
+                {tag.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
       <div className="prose max-w-none text-gray-500 dark:text-gray-400 line-clamp-3">
