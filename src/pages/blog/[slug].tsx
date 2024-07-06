@@ -87,11 +87,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticPaths() {
   const notionService = new NotionService();
 
-  const posts = await notionService.getPublishedBlogPosts();
+  const { allPosts } = await notionService.getPublishedBlogPosts();
 
   // Because we are generating static paths, you will have to redeploy your site whenever
   // you make a change in Notion.
-  const paths = posts.map((post) => {
+  const paths = allPosts.map((post) => {
     return `/blog/${post.slug}`;
   });
 
