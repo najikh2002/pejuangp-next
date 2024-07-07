@@ -9,10 +9,6 @@ import { useRouter } from "next/router";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  const isDynamicRoute = /\/blog\/\[.+\]/.test(router.pathname);
-
   return (
     <>
       <style jsx global>{`
