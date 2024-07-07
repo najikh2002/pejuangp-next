@@ -4,7 +4,6 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Space_Grotesk } from "next/font/google";
-import { useRouter } from "next/router";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
