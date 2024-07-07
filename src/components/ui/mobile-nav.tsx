@@ -33,7 +33,7 @@ export default function MobileNav() {
       </div>
 
       <div
-        className={`fixed top-0 w-full dark:bg-black dark:text-white h-full bg-white left-0 transition-all ${
+        className={`fixed top-0 w-full dark:bg-black dark:text-white h-full bg-white left-0 transition-all z-30 ${
           show ? "translate-x-0" : "translate-x-[100%]"
         }`}
       >
