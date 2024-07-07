@@ -2,6 +2,7 @@ import TitlePage from "@/components/title-page";
 import { NotionService } from "@/services/notion-service";
 import { ProjectPost } from "@/types/schema";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -44,10 +45,12 @@ export default function Project({
               className="flex flex-col rounded-xl shadow-lg overflow-hidden bg-white dark:bg-gray-800"
             >
               <div className="flex-shrink-0">
-                <img
+                <Image
                   className="h-64 w-full object-fit"
                   src={`${post.cover?.url}`}
                   alt={post.title}
+                  height={256}
+                  width={500}
                 />
               </div>
               <div className="flex-1 bg-gray-50 dark:bg-gray-900 pt-2 pb-6 px-4 flex flex-col justify-between">

@@ -11,7 +11,7 @@ export default function MobileNav() {
   const pathname = usePathname();
 
   const showNavHandler = () => {
-    show ? setShow(false) : setShow(true);
+    setShow((prev) => !prev);
   };
 
   const hideNavOnRouteChange = () => {
@@ -23,7 +23,7 @@ export default function MobileNav() {
     return () => {
       router.events.off("routeChangeStart", hideNavOnRouteChange);
     };
-  }, []);
+  }, [router.events]);
 
   return (
     <>
