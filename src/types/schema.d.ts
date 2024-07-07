@@ -23,6 +23,19 @@ export type BlogPost = {
   author: string;
 };
 
+export type ProjectPost = {
+  cover?: {
+    url: string | null;
+  };
+  id: string;
+  slug: string;
+  cover: string;
+  title: string;
+  date: string;
+  author: string;
+  link: string;
+};
+
 export type PostPage = {
   post: BlogPost;
   markdown: string;
