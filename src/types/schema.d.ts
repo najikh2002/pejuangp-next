@@ -13,6 +13,7 @@ export type BlogPostList = {
 
 export type BlogPost = {
   cover?: string | null;
+  icon?: { url: string } | null;
   id: string;
   slug: string;
   cover: string;
@@ -21,6 +22,7 @@ export type BlogPost = {
   description: string;
   date: string;
   author: string;
+  instagram: string;
 };
 
 export type ProjectPost = {

@@ -46,13 +46,16 @@ const Post = ({
                         {post.title}
                       </h1>
                     </div>
-                    <ProfileCard className="flex xl:hidden" />
+                    <ProfileCard className="flex xl:hidden" post={post} />
                   </div>
                 </header>
               </div>
               <div className="flex items-center xl:items-start justify-between py-6 md:py-10 mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 dark:text-white">
                 <div className="hidden xl:flex flex-col justify-start items-start w-full">
-                  <ProfileCard className="hidden xl:flex border-b-[1px] border-gray-400 pr-3 pt-5 pb-10 xl:w-[90%]" />
+                  <ProfileCard
+                    className="hidden xl:flex border-b-[1px] border-gray-400 pr-3 pt-5 pb-10 xl:w-[90%]"
+                    post={post}
+                  />
                 </div>
                 <div className="prose prose-xl md:p-0 max-w-xl xl:max-w-[75%]">
                   <MarkdownRenderer>{markdown}</MarkdownRenderer>

@@ -157,7 +157,8 @@ export class NotionService {
 
   private static pageToBlogTransformer(page: any): BlogPost {
     let date,
-      cover = page.cover;
+      cover = page.cover,
+      icon = page.icon;
 
     if (cover) {
       switch (cover.type) {
@@ -172,17 +173,35 @@ export class NotionService {
       }
     }
 
+    if (icon) {
+      switch (icon.type) {
+        case "file":
+          icon = page.icon.file;
+          break;
+        case "external":
+          icon = page.icon.external;
+          break;
+        case "emoji":
+          icon = page.icon.emoji;
+          break;
+        default:
+          icon = null;
+      }
+    }
+
     date = formatDateTime(page.properties.Created.date.start);
 
     return {
       id: page.id,
       cover: cover,
+      icon: icon,
       title: page.properties.Name.title[0].plain_text,
       tags: page.properties.Tags.multi_select,
       description: page.properties.Description.rich_text[0].plain_text,
       date: date,
       slug: page.properties.Slug.formula.string,
       author: page.properties.Author.rich_text[0].plain_text,
+      instagram: page.properties.Instagram.rich_text[0].plain_text,
     };
   }
 
