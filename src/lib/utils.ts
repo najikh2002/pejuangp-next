@@ -14,3 +14,15 @@ export function formatDateTime(time: string) {
 
   return `${dayName}, ${day} ${monthName} ${year}`;
 }
+
+export const processMarkdownImages = (markdown: string) => {
+  // Regex untuk mencari semua gambar dalam markdown ![alt](url)
+  return markdown.replace(
+    /!\[(.*?)\]\((https:\/\/.*?\.(?:png|jpe?g|gif))\)/g,
+    (match, alt, url) => {
+      // Ganti URL gambar dengan URL proxy atau CDN
+      const proxyUrl = `/api/image-proxy?url=${encodeURIComponent(url)}`;
+      return `![${alt}](${proxyUrl})`;
+    }
+  );
+};
