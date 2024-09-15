@@ -23,7 +23,11 @@ const Post = ({
           title={"og:description"}
           content={post.description}
         />
-        <meta name={"og:image"} title={"og:image"} content={post.cover} />
+        <meta
+          name={"og:image"}
+          title={"og:image"}
+          content={`https://www.pejuangpemrograman.com/${post.cover}`}
+        />
       </Head>
 
       <div className="min-h-screen">
