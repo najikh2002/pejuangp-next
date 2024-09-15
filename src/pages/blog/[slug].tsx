@@ -3,14 +3,11 @@ import Head from "next/head";
 import { NotionService } from "../../services/notion-service";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import ProfileCard from "@/components/profile-card";
-import { processMarkdownImages } from "@/lib/utils";
 
 const Post = ({
   markdown,
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const processedMarkdown = processMarkdownImages(markdown);
-
   return (
     <>
       <Head>
@@ -61,7 +58,7 @@ const Post = ({
                   />
                 </div>
                 <div className="prose prose-xl md:p-0 max-w-xl xl:max-w-[75%]">
-                  <MarkdownRenderer>{processedMarkdown}</MarkdownRenderer>
+                  <MarkdownRenderer>{markdown}</MarkdownRenderer>
                 </div>
               </div>
             </article>
