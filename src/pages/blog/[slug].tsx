@@ -26,7 +26,7 @@ const Post = ({
         <meta
           name={"og:image"}
           title={"og:image"}
-          content={`https://www.pejuangpemrograman.com/${post.cover}`}
+          content={"https://najikh2002.github.io/assets/pejuangp/cover.png"}
         />
       </Head>
 

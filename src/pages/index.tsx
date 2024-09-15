@@ -31,6 +31,21 @@ export default function Home({
           title={"description"}
           content={description}
         />
+        <meta
+          name={"og:title"}
+          title={"og:title"}
+          content={"Pejuang Pemrograman"}
+        />
+        <meta
+          name={"og:description"}
+          title={"og:description"}
+          content={"Belajar Koding Lengkap Bahasa Indonesia."}
+        />
+        <meta
+          name={"og:image"}
+          title={"og:image"}
+          content={"https://najikh2002.github.io/assets/pejuangp/cover.png"}
+        />
       </Head>
       <section className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <main className="mb-auto">
