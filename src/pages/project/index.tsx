@@ -39,6 +39,7 @@ export default function Project({
             href={`${post.link}`}
             className="transition duration-300 hover:scale-105"
             key={post.id}
+            target="_blank"
           >
             <div
               key={post.title}
